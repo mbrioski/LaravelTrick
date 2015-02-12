@@ -15,28 +15,28 @@ The solution is very simple: **tell your service provider to overwrite origin co
 
 So in your service provider definition add:
 ```
-    public function boot() {
-        $this->package('vendor/name', 'namespace');
-    }
+public function boot() {
+    $this->package('vendor/name', 'namespace');
+}
     
-    public function register() {
-        $loader = $this->app['config']->getLoader();
+public function register() {
+    $loader = $this->app['config']->getLoader();
 
-        // Get environment name
-        $env = $this->app['config']->getEnvironment();
+    // Get environment name
+    $env = $this->app['config']->getEnvironment();
 
-        // Add package namespace with path set, override package if app config exists in the main app directory
-        if (file_exists(app_path() . '/config/packages/vendor/namespace')) {
-            $loader->addNamespace('namespace', app_path() . '/config/packages/vendor/namespace');
-        } else {
-            $loader->addNamespace('namespace', __DIR__ . '/../../config');
-        }
+    // Add package namespace with path set, override package if app config exists in the main app directory
+    if (file_exists(app_path() . '/config/packages/vendor/namespace')) {
+        $loader->addNamespace('namespace', app_path() . '/config/packages/vendor/namespace');
+    } else {
+        $loader->addNamespace('namespace', __DIR__ . '/../../config');
+    }
 
-        $config = $loader->load($env, 'config', 'namespace');
+    $config = $loader->load($env, 'config', 'namespace');
 
-        $this->app['config']->set('namespace::config', $config);
+    $this->app['config']->set('namespace::config', $config);
       
-      ...  
+    ...  
     
 ```
     
