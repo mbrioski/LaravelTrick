@@ -40,4 +40,4 @@ So in your service provider definition add:
     
 ```
     
-    Now everybody use your library can overwrite the original configuration.
+Now everybody use your library can overwrite the original configuration.
