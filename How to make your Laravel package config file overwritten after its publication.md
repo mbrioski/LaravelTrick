@@ -40,4 +40,4 @@ public function register() {
     
 ```
     
-Now everybody use your library can overwrite the original configuration.
+Now everybody that use your library can overwrite the original configuration.
