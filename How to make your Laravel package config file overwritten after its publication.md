@@ -1,4 +1,4 @@
-#How to make your Laravel package config file overwritten after its publication
+#How to make your Laravel 4.2 package config file overwritten after its publication 
 
 I spent a lot of time to try to figure out of this stupid problem that anyway is not well documented in Laravel 4.2
 After have developed your package or a workbech and had published your personal configuration:
